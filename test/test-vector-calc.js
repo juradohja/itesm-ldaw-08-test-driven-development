@@ -5,7 +5,6 @@ describe('VectorCalc', () => {
     describe('#sum', () => {
         let v1 = { x: 4, y: 3};
         let v2 = { x: 1, y: 3};
-
         it('Should sum the vectors', () => {
             assert.deepStrictEqual({x: 5, y: 6}, VectorCalculator.sum(v1, v2));
         })
@@ -31,7 +30,7 @@ describe('VectorCalc', () => {
         let v1 = {x: 4, y: 3};
         let v2 = {x: 1, y: 2};
         it('Should calculate the dot product', () => {
-            assert.deepStrictEqual(10, VectorCalculator.dot(v1, v2));
+            assert.strictEqual(10, VectorCalculator.dot(v1, v2));
         })
     })
 })

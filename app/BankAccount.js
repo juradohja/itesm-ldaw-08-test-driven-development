@@ -1,27 +1,37 @@
 class BankAccount {
 
-    BankAccount = () => {
-
+    constructor (balance) {
+        this.balance = balance;
+        this.hist = [];
     }
 
-    current = () => {
-
+    current()  {
+        return this.balance;
     }
 
-    append = () => {
-
+    append(amount) {
+        if(amount > 0.0) {
+            this.balance += amount;
+            this.hist.push({'operation' : 'append', 'amount' : amount});
+        }
+        return this.balance;
     }
 
-    substract = () => {
-
+    substract(amount) {
+        if(amount > 0.0) {
+            this.balance -= amount;
+            this.hist.push({'operation' : 'substract', 'amount' : amount});
+        }
+        return this.balance;
     }
 
-    merge = () => {
-
+    merge(account) {
+        this.balance += account.current();
+        this.hist.push(...account.history());
     }
 
-    history = () => {
-
+    history() {
+        return this.hist;
     }
 
 }
